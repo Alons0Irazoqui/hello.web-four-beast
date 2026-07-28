@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Four Beats - The Tribute, banda tributo a The Beatles en León. Shows en vivo para festivales, venues, eventos privados y experiencias corporativas.">
+<meta name="keywords" content="Four Beats The Tribute, banda tributo Beatles León, Beatles tribute band León, música en vivo León, banda para eventos León">
+<meta property="og:title" content="Four Beats - The Tribute | Beatles Tribute Band en León">
+<meta property="og:description" content="La energía de The Beatles llevada al escenario con producción profesional, identidad retro y experiencia en vivo.">
+<meta property="og:image" content="imagenes/four-beats-hero-live.jpeg">
+<title>Four Beats - The Tribute | Beatles Tribute Band en León</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#000000;
+  --white:#ffffff;
+  --red:#C8102E;
+  --red-soft:rgba(200,16,46,.14);
+  --blue:#012169;
+  --blue-soft:rgba(1,33,105,.24);
+  --ink:#0b0b0d;
+  --dark:#050506;
+  --dark-2:#0d0e12;
+  --dark-3:#15171d;
+  --paper:#f6f6f2;
+  --paper-2:#ebe9e1;
+  --text-dark:#15161a;
+  --text-mid:#5a5d66;
+  --text-muted:rgba(255,255,255,.66);
+  --text-dim:rgba(255,255,255,.38);
+  --border-d:rgba(255,255,255,.14);
+  --border-l:rgba(0,0,0,.11);
+  --font-serif:'Playfair Display', Georgia, serif;
+  --font-sans:'Inter', system-ui, sans-serif;
+  --font-type:'Special Elite','Courier Prime',monospace;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-inout:cubic-bezier(.65,0,.35,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:var(--font-sans);font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:0;background:none;font-family:inherit}
+ul{list-style:none}
+
+#loader{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at 50% 42%,rgba(200,16,46,.24),transparent 32%),linear-gradient(140deg,#000 0%,#06070c 48%,#001033 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity 1s var(--ease-out),visibility 1s}
+#loader::before{content:'';position:absolute;inset:12%;border:1px solid rgba(255,255,255,.08);animation:loaderFrame 2.4s var(--ease-inout) infinite}
+#loader::after{content:'';position:absolute;width:34vw;max-width:420px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(200,16,46,.3);border-top-color:rgba(255,255,255,.82);animation:spin 1.6s linear infinite}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo-wrap{position:relative;z-index:1;text-align:center;animation:ldLogoIn 1s var(--ease-out) both}
+.loader-logo-wrap img{width:260px;max-width:64vw;filter:drop-shadow(0 18px 44px rgba(200,16,46,.34))}
+.loader-tag{position:relative;z-index:1;font-family:var(--font-type);font-size:12px;letter-spacing:5px;color:var(--white);text-transform:uppercase}
+.loader-progress{position:relative;z-index:1;width:150px;height:2px;background:rgba(255,255,255,.16);overflow:hidden}
+.loader-progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--white),var(--red));animation:ldFill 1.8s var(--ease-inout) .35s forwards}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes loaderFrame{0%,100%{transform:scale(.96);opacity:.4}50%{transform:scale(1.02);opacity:1}}@keyframes ldFill{to{width:100%}}@keyframes ldLogoIn{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+#mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease-out),visibility .4s}
+#mobile-menu.open{opacity:1;visibility:visible}
+.mob-logo img{width:210px;height:auto}
+#mobile-menu a{font-family:var(--font-serif);font-size:30px;color:var(--white);letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+#mobile-menu a:hover{color:var(--red)}
+
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:background .45s var(--ease-out),padding .35s var(--ease-out),backdrop-filter .45s,box-shadow .35s}
+#nav.scrolled{padding:10px 5%;background:rgba(0,0,0,.78);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:0 1px 0 var(--border-d)}
+.nav-logo{display:flex;align-items:center;gap:14px;min-width:max-content}
+.nav-logo-pill img{height:76px;width:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.45))}
+.nav-logo-text strong{display:block;font-family:var(--font-serif);font-size:16px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}
+.nav-logo-text small{display:block;font-family:var(--font-type);font-size:9px;letter-spacing:2.6px;color:var(--red);text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:var(--text-muted);font-weight:600;transition:color .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:11px 22px;background:var(--red);color:var(--white);font-size:10px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;box-shadow:0 16px 34px rgba(200,16,46,.28);transition:transform .3s,background .3s}
+.nav-cta:hover{transform:translateY(-2px);background:#e01838}
+.nav-ham{display:none;flex-direction:column;gap:5px;padding:4px}
+.nav-ham span{display:block;width:24px;height:1.5px;background:var(--white);transition:transform .3s,opacity .3s}
+.nav-ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}.nav-ham.open span:nth-child(2){opacity:0}.nav-ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:url('imagenes/four-beats-hero-live.jpeg') center 36%/cover no-repeat fixed}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.48) 46%,rgba(1,33,105,.72) 100%),radial-gradient(circle at 72% 38%,rgba(200,16,46,.28),transparent 36%)}
+#particle-canvas{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-ring{position:absolute;top:50%;left:50%;border:1px solid rgba(255,255,255,.07);pointer-events:none;z-index:2}
+.ring-1{width:760px;height:760px;margin:-380px 0 0 -380px;animation:ringRot 34s linear infinite}.ring-2{width:520px;height:520px;margin:-260px 0 0 -260px;border-color:rgba(200,16,46,.12);animation:ringRot 24s linear infinite reverse}.ring-3{width:300px;height:300px;margin:-150px 0 0 -150px;border-color:rgba(255,255,255,.05);animation:ringRot 17s linear infinite}
+.hero-flash{position:absolute;top:0;height:100%;width:55%;left:-55%;z-index:3;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);animation:heroFlash 2.6s ease-out 1s forwards}
+.hero-glow-pulse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:680px;height:340px;background:radial-gradient(ellipse,rgba(200,16,46,.18),transparent 70%);z-index:2;animation:glowPulse 5s ease-in-out infinite 1.5s}
+.hero-content{position:relative;z-index:4;text-align:center;max-width:980px;padding:138px 24px 90px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-type);font-size:10px;letter-spacing:4.6px;text-transform:uppercase;color:rgba(255,255,255,.86);margin-bottom:26px;opacity:0;transform:translateY(20px);animation:fadeUp .9s var(--ease-out) .3s forwards}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:38px;height:1px;background:var(--red)}
+.hero-title{font-family:var(--font-serif);font-size:clamp(52px,10.5vw,126px);font-weight:700;line-height:.88;letter-spacing:0;margin-bottom:20px;opacity:0;transform:translateY(36px);animation:fadeUp 1s var(--ease-out) .55s forwards}
+.hero-title em{font-style:italic;background:linear-gradient(90deg,var(--white),var(--red),#f5f7ff,var(--blue),var(--white));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:goldShimmer 5s ease-in-out infinite 1.6s}
+.hero-subtitle{font-family:var(--font-type);font-size:clamp(16px,2.5vw,26px);letter-spacing:2px;color:rgba(255,255,255,.74);margin-bottom:26px;opacity:0;transform:translateY(24px);animation:fadeUp 1s var(--ease-out) .82s forwards}
+.typer-word{color:#ff3856}.typer-cursor{display:inline-block;width:2px;height:.9em;background:var(--red);vertical-align:middle;margin-left:3px;animation:cursorBlink .75s infinite}
+.hero-desc{font-size:15px;color:var(--text-muted);max-width:630px;margin:0 auto 38px;line-height:1.85;opacity:0;transform:translateY(20px);animation:fadeUp 1s var(--ease-out) 1.02s forwards}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:fadeUp 1s var(--ease-out) 1.18s forwards}
+.btn-primary,.btn-ghost,.btn-ghost-dark{display:inline-block;font-family:var(--font-sans);font-size:10px;letter-spacing:2.8px;text-transform:uppercase;font-weight:700;transition:transform .3s,box-shadow .3s,border-color .3s,color .3s,background .3s}
+.btn-primary{padding:16px 36px;background:var(--red);color:var(--white);box-shadow:0 16px 42px rgba(200,16,46,.32)}.btn-primary:hover{transform:translateY(-2px);background:#e01838;box-shadow:0 22px 54px rgba(200,16,46,.42)}
+.btn-ghost{padding:15px 36px;border:1px solid rgba(255,255,255,.28);color:var(--white);background:rgba(0,0,0,.12)}.btn-ghost:hover{transform:translateY(-2px);border-color:var(--white)}
+.hero-trust{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:4;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;color:var(--text-muted);font-size:10px;letter-spacing:2px;text-transform:uppercase}.hero-trust strong{color:var(--white)}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}@keyframes ringRot{to{transform:rotate(360deg)}}@keyframes heroFlash{to{left:115%;opacity:0}}@keyframes glowPulse{50%{opacity:1;transform:translate(-50%,-50%) scale(1.16)}}@keyframes cursorBlink{50%{opacity:0}}@keyframes goldShimmer{to{background-position:-300% center}}
+
+.container{max-width:1280px;margin:0 auto;padding:0 5%}
+.section-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-type);font-size:10px;letter-spacing:3.6px;text-transform:uppercase;color:var(--red);font-weight:400;margin-bottom:18px}
+.section-tag::before,.section-tag::after{content:'';display:block;width:26px;height:1px;background:var(--red);opacity:.65}.section-tag.no-lines::before,.section-tag.no-lines::after{display:none}
+.section-title{font-family:var(--font-serif);font-size:clamp(34px,5vw,64px);font-weight:700;line-height:1.06;color:var(--white)}
+.section-title em{font-style:italic;color:var(--red)}
+.section-lead{margin:18px auto 0;font-size:15px;max-width:590px;line-height:1.85;font-weight:300}
+.section-header{text-align:center;margin-bottom:66px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}.reveal.visible{opacity:1;transform:translateY(0)}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+#about{background:var(--paper);color:var(--text-dark)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 0}
+.about-visual{position:relative}.about-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center top;filter:grayscale(100%) contrast(1.08)}
+.about-badge{position:absolute;right:-20px;bottom:24px;width:124px;height:124px;background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 18px 44px rgba(0,0,0,.22)}
+.about-badge strong{font-family:var(--font-serif);font-size:34px;color:var(--white);line-height:1}.about-badge span{font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.76);font-weight:700}
+.about-title{font-family:var(--font-serif);font-size:clamp(30px,3.8vw,50px);font-weight:700;line-height:1.1;margin-bottom:22px}.about-title em{font-style:italic;color:var(--red)}
+.about-text{font-size:15px;color:var(--text-mid);line-height:1.9;margin-bottom:18px}.about-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:38px;padding-top:34px;border-top:1px solid var(--border-l)}
+.about-stat strong{display:block;font-family:var(--font-serif);font-size:36px;color:var(--red);line-height:1;margin-bottom:6px}.about-stat span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#777;font-weight:700}
+
+#rooms{padding:120px 0;background:var(--dark-2);position:relative;overflow:hidden}
+#rooms::before,#contact::before{content:'';position:absolute;inset:auto -10% -40% auto;width:620px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.12),transparent 68%);pointer-events:none}
+.rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.room-card{position:relative;overflow:hidden;cursor:pointer;background:var(--black)}.room-card-inner{aspect-ratio:3/4;position:relative;overflow:hidden}
+.room-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .9s var(--ease-out),filter .5s}.room-card:hover .room-card-img{transform:scale(1.07);filter:saturate(1.15)}
+.room-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.18) 58%,transparent);z-index:1}
+.room-content{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 24px;transform:translateY(7px);transition:transform .5s var(--ease-out)}.room-card:hover .room-content{transform:translateY(0)}
+.room-tag{font-family:var(--font-type);font-size:9px;letter-spacing:2.8px;text-transform:uppercase;color:#ff3856;margin-bottom:8px}.room-name{font-family:var(--font-serif);font-size:28px;font-weight:700;line-height:1.08;margin-bottom:10px}
+.room-desc{font-size:12px;color:rgba(255,255,255,.66);line-height:1.75;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s var(--ease-out),opacity .45s}.room-card:hover .room-desc{max-height:115px;opacity:1}
+.room-pills{position:absolute;top:18px;right:18px;z-index:2;display:flex;flex-direction:column;gap:5px;opacity:0;transform:translateX(8px);transition:opacity .4s,transform .4s var(--ease-out)}.room-card:hover .room-pills{opacity:1;transform:translateX(0)}
+.room-pill{background:rgba(0,0,0,.72);border:1px solid var(--border-d);padding:4px 9px;font-size:9px;color:var(--white);letter-spacing:1.5px;text-transform:uppercase}
+
+#amenities{padding:120px 0;background:var(--white);color:var(--text-dark)}
+#amenities .section-title{color:var(--text-dark)}#amenities .section-lead{color:var(--text-mid)}
+.amenities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:68px}
+.amenity-card{background:var(--paper);padding:40px 26px;border:1px solid var(--border-l);position:relative;overflow:hidden;transition:transform .4s var(--ease-out),box-shadow .4s,border-color .4s}
+.amenity-card::before{content:attr(data-num);position:absolute;top:10px;right:16px;font-family:var(--font-serif);font-size:58px;line-height:1;color:rgba(200,16,46,.12);font-weight:700}
+.amenity-card::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--red));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-out)}
+.amenity-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.09);border-color:rgba(200,16,46,.28)}.amenity-card:hover::after{transform:scaleX(1)}
+.amenity-name{font-family:var(--font-serif);font-size:22px;font-weight:700;line-height:1.1;margin-bottom:12px;position:relative}.amenity-desc{font-size:13px;color:var(--text-mid);line-height:1.75;position:relative}
+
+#experience{padding:96px 0;background:linear-gradient(120deg,rgba(0,0,0,.62),rgba(200,16,46,.76)),url('imagenes/four-beats-band.jpeg') center 42%/cover fixed;position:relative;overflow:hidden}
+#experience::before{content:'FOUR BEATS';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-size:clamp(78px,13vw,180px);font-weight:700;color:rgba(255,255,255,.1);white-space:nowrap;pointer-events:none}
+#experience::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 22% 26%,rgba(255,255,255,.14),transparent 26%),linear-gradient(90deg,rgba(1,33,105,.28),transparent 48%,rgba(200,16,46,.2));mix-blend-mode:screen;pointer-events:none}
+.exp-inner{display:flex;align-items:center;justify-content:space-between;gap:56px;flex-wrap:wrap;position:relative;z-index:1}.exp-left{flex:1;min-width:280px}.exp-left .section-tag{color:rgba(255,255,255,.8)}.exp-left .section-tag::before,.exp-left .section-tag::after{background:rgba(255,255,255,.5)}
+.exp-tagline{font-family:var(--font-serif);font-size:clamp(30px,4vw,52px);font-weight:700;color:var(--white);line-height:1.12}.exp-tagline em{font-style:italic}
+.exp-stats{display:flex;gap:46px;flex-wrap:wrap}.exp-stat{text-align:center}.exp-stat strong{display:block;font-family:var(--font-serif);font-size:48px;font-weight:700;color:var(--white);line-height:1;margin-bottom:7px}.exp-stat span{font-size:9px;letter-spacing:2.8px;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:700}
+
+#gallery{padding:120px 0;background:var(--dark)}
+#gallery .section-lead{color:var(--text-muted)}
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:330px 260px;gap:4px;margin-top:68px}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;background:#111}.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .85s var(--ease-out),filter .5s}.gallery-item:hover img{transform:scale(1.06);filter:brightness(.72) saturate(1.1)}
+.gi-label{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(to top,rgba(0,0,0,.9),transparent);font-family:var(--font-serif);font-size:16px;color:var(--white);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s var(--ease-out);z-index:2}.gallery-item:hover .gi-label{opacity:1;transform:translateY(0)}
+.gi-1{grid-column:1/7}.gi-2{grid-column:7/10}.gi-3{grid-column:10/13}.gi-4{grid-column:1/5}.gi-5{grid-column:5/9}.gi-6{grid-column:9/13}
+
+#location{padding:120px 0;background:var(--paper-2);color:var(--text-dark)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.map-box{width:100%;aspect-ratio:4/3;background:#dedbd2;border:1px solid var(--border-l);overflow:hidden;position:relative}.map-box iframe{width:100%;height:100%;border:0;filter:grayscale(100%) contrast(.95)}
+.location-title{font-family:var(--font-serif);font-size:clamp(28px,3.2vw,44px);font-weight:700;line-height:1.13;margin-bottom:20px}.location-title em{font-style:italic;color:var(--red)}
+.location-text{font-size:15px;color:var(--text-mid);line-height:1.85;margin-bottom:28px}.location-details{display:flex;flex-direction:column}.loc-detail{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid var(--border-l)}.loc-label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:4px}.loc-val{font-size:14px;color:var(--text-mid);line-height:1.7}
+
+#testimonios{padding:120px 0;background:var(--paper);color:var(--text-dark)}
+#testimonios .section-title{color:var(--text-dark)}#testimonios .section-lead{color:var(--text-mid)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.review-card{background:var(--white);padding:38px 30px;border:1px solid var(--border-l);position:relative;overflow:hidden;transition:box-shadow .4s,transform .4s var(--ease-out)}
+.review-card::before{content:'“';position:absolute;top:6px;right:20px;font-family:var(--font-serif);font-size:86px;color:rgba(200,16,46,.1);line-height:1}.review-card:hover{box-shadow:0 14px 52px rgba(0,0,0,.1);transform:translateY(-5px)}
+.review-stars{color:var(--red);font-size:15px;letter-spacing:2px;margin-bottom:18px}.review-text{font-family:var(--font-serif);font-size:16px;font-style:italic;color:#444;line-height:1.88;margin-bottom:26px}.review-author{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--border-l)}
+.review-avatar{width:38px;height:38px;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:16px;font-weight:700;color:var(--white);flex-shrink:0}.review-name strong{display:block;font-size:13px;color:var(--text-dark)}.review-name span{font-size:11px;color:#858585}
+.btn-ghost-dark{padding:14px 34px;border:1px solid rgba(0,0,0,.2);color:var(--text-dark)}.btn-ghost-dark:hover{border-color:var(--red);color:var(--red)}
+
+#contact{padding:120px 0;background:var(--dark-2);position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}.contact-left .section-tag,.contact-right .section-tag{justify-content:flex-start}.contact-left .section-tag::before,.contact-right .section-tag::before{display:none}
+.contact-title{font-family:var(--font-serif);font-size:clamp(28px,3.2vw,44px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.16}.contact-title em{font-style:italic;color:var(--red)}.contact-sub{font-size:14px;color:var(--text-muted);margin-bottom:34px;line-height:1.8}
+#booking-form{display:flex;flex-direction:column;gap:16px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{display:flex;flex-direction:column;gap:7px}.form-group label{font-size:9px;letter-spacing:2.4px;text-transform:uppercase;color:#ff3856;font-weight:700}
+.form-group input,.form-group select,.form-group textarea{background:transparent;border:1px solid var(--border-d);padding:13px 16px;color:var(--white);font-family:var(--font-sans);font-size:14px;font-weight:300;outline:none;appearance:none;border-radius:0;transition:border-color .3s,box-shadow .3s}.form-group select{background:var(--dark-3);cursor:pointer}.form-group select option{background:var(--dark-3);color:var(--white)}.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-dim)}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}.form-group textarea{resize:vertical;min-height:96px}
+.form-submit{margin-top:6px;width:100%;padding:17px;background:var(--red);color:var(--white);font-size:10px;letter-spacing:2.8px;text-transform:uppercase;font-weight:800;font-family:var(--font-sans);transition:background .3s,transform .3s,box-shadow .3s}.form-submit:hover{background:#e01838;transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,16,46,.28)}
+.contact-map{width:100%;aspect-ratio:16/9;margin:24px 0 28px;background:var(--dark-3);border:1px solid var(--border-d);overflow:hidden;box-shadow:0 22px 54px rgba(0,0,0,.24)}.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(100%) contrast(.98) brightness(.82)}
+.channels{display:flex;flex-direction:column;gap:2px;margin-top:28px}.channel{display:flex;align-items:center;gap:16px;padding:20px 22px;background:var(--dark-3);border:1px solid transparent;transition:border-color .3s,background .3s}.channel:hover{border-color:var(--border-d);background:rgba(200,16,46,.06)}
+.ch-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--red-soft);border:1px solid rgba(200,16,46,.25);flex-shrink:0;color:#ff3856}.ch-icon svg{width:18px;height:18px}.ch-info strong{display:block;font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px}.ch-info span{font-size:12px;color:var(--text-muted)}.ch-arrow{margin-left:auto;color:var(--text-dim);transition:color .3s,transform .3s}.channel:hover .ch-arrow{color:var(--red);transform:translateX(4px)}
+.contact-quote{margin-top:28px;padding:24px;border:1px solid var(--border-d);background:rgba(1,33,105,.18)}.contact-quote p{font-family:var(--font-serif);font-size:17px;font-style:italic;color:rgba(255,255,255,.86);line-height:1.75;text-align:center}.contact-quote cite{display:block;margin-top:10px;font-family:var(--font-type);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ff3856;font-style:normal;text-align:center}
+
+footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--border-d)}.footer-top{display:flex;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:52px;border-bottom:1px solid var(--border-d);margin-bottom:32px}.footer-brand{max-width:300px}.footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px}.footer-logo-pill img{height:76px;width:auto}.footer-logo-text strong{display:block;font-family:var(--font-serif);font-size:16px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}.footer-logo-text small{font-family:var(--font-type);font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase}.footer-brand p{font-size:13px;color:var(--text-dim);line-height:1.8}.footer-col h4{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ff3856;margin-bottom:16px;font-weight:700}.footer-col ul{display:flex;flex-direction:column;gap:9px}.footer-col ul a{font-size:13px;color:var(--text-dim);transition:color .3s}.footer-col ul a:hover{color:var(--white)}.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}.footer-bottom p{font-size:11px;color:var(--text-dim)}.social-links{display:flex;gap:10px}.social-link{width:32px;height:32px;border:1px solid var(--border-d);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:border-color .3s,color .3s}.social-link:hover{border-color:var(--red);color:var(--red)}.social-link svg{width:13px;height:13px}
+#wa-float{position:fixed;right:22px;bottom:26px;z-index:900;width:58px;height:58px;background:#1877F2;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(24,119,242,.42);transition:transform .3s var(--ease-out),box-shadow .3s}#wa-float:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 8px 32px rgba(24,119,242,.55)}#wa-float svg{width:26px;height:26px;fill:white;position:relative;z-index:1}.wa-ring,.wa-ring-2{position:absolute;border-radius:50%;background:rgba(24,119,242,.22);animation:waRing 2.5s ease-in-out infinite}.wa-ring{inset:-5px}.wa-ring-2{inset:-12px;animation-delay:.65s;background:rgba(24,119,242,.11)}@keyframes waRing{50%{transform:scale(1.18);opacity:0}}
+
+@media (max-width:1024px){.rooms-grid{grid-template-columns:1fr 1fr}.amenities-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:52px}.gallery-grid{grid-template-columns:repeat(6,1fr);grid-template-rows:280px 220px}.gi-1{grid-column:1/7}.gi-2{grid-column:1/4}.gi-3{grid-column:4/7}.gi-4{grid-column:1/3}.gi-5{grid-column:3/5}.gi-6{grid-column:5/7}}
+@media (max-width:768px){#nav{padding:12px 5%}.nav-links,.nav-cta{display:none}.nav-ham{display:flex}.nav-logo-pill img{height:64px}.nav-logo-text strong{font-size:14px}.nav-logo-text small{font-size:8px;letter-spacing:2px}#hero,#experience{background-attachment:scroll}#hero{background-position:center top}.hero-content{padding-top:128px}.hero-trust{position:relative;left:auto;bottom:auto;transform:none;margin-top:34px}.about-grid,.location-grid{grid-template-columns:1fr;gap:48px;padding:92px 0}.about-badge{right:14px;bottom:14px}.rooms-grid{grid-template-columns:1fr}.amenities-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;text-align:center}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi-1,.gi-2,.gi-3,.gi-4,.gi-5,.gi-6{grid-column:auto}.gallery-grid .gallery-item img{aspect-ratio:1;height:220px}}
+@media (max-width:480px){.amenities-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;align-items:stretch}.btn-primary,.btn-ghost{text-align:center;padding:15px}.hero-title{font-size:clamp(46px,15vw,62px)}.hero-eyebrow{letter-spacing:2.8px}.hero-eyebrow::before,.hero-eyebrow::after{width:20px}.about-stats,.exp-stats{gap:24px}.rooms-grid,.gallery-grid{gap:6px}.loader-logo-wrap img{width:220px}}
+</style>
+</head>
+<body>
+
+<div id="loader" role="status" aria-label="Cargando Four Beats - The Tribute">
+  <div class="loader-logo-wrap"><img src="imagenes/logo-transparent.png" alt="Four Beats - The Tribute"></div>
+  <p class="loader-tag">Cargando...</p>
+  <div class="loader-progress"><div class="loader-progress-fill"></div></div>
+</div>
+
+<div id="mobile-menu" role="dialog" aria-label="Menú principal">
+  <div class="mob-logo"><img src="imagenes/logo-transparent.png" alt="Four Beats - The Tribute"></div>
+  <a href="#about" onclick="closeMob()">La Banda</a>
+  <a href="#rooms" onclick="closeMob()">Shows</a>
+  <a href="#amenities" onclick="closeMob()">Diferenciales</a>
+  <a href="#gallery" onclick="closeMob()">Galería</a>
+  <a href="#contact" onclick="closeMob()">Contacto</a>
+</div>
+
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <a href="#" class="nav-logo" aria-label="Four Beats - Inicio">
+    <div class="nav-logo-pill"><img src="imagenes/logo-transparent.png" alt="Logo Four Beats - The Tribute"></div>
+    <div class="nav-logo-text"><strong>Four Beats</strong><small>The Tribute</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">La Banda</a></li>
+    <li><a href="#rooms">Shows</a></li>
+    <li><a href="#amenities">Diferenciales</a></li>
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#testimonios">Confianza</a></li>
+  </ul>
+  <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="nav-cta">Contactar</a>
+  <button class="nav-ham" id="ham" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<section id="hero" aria-label="Four Beats - The Tribute">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="hero-ring ring-1" aria-hidden="true"></div>
+  <div class="hero-ring ring-2" aria-hidden="true"></div>
+  <div class="hero-ring ring-3" aria-hidden="true"></div>
+  <div class="hero-flash" aria-hidden="true"></div>
+  <div class="hero-glow-pulse" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Beatles Tribute Band · León</p>
+    <h1 class="hero-title">La beatlemanía<br><em>vuelve en vivo</em></h1>
+    <p class="hero-subtitle">Un show tributo con <span id="typer" class="typer-word"></span><span class="typer-cursor" aria-hidden="true"></span></p>
+    <p class="hero-desc">Four Beats - The Tribute lleva la música de The Beatles al escenario con una experiencia cuidada, visualmente potente y lista para festivales, venues, eventos privados y noches corporativas.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Solicitar Contratación</a>
+      <a href="#gallery" class="btn-ghost">Ver Show en Vivo</a>
+    </div>
+    <div class="hero-trust" aria-label="Datos destacados">
+      <span><strong>León</strong> zona de actividad</span>
+      <span><strong>156</strong> me gusta en Facebook</span>
+      <span><strong>29</strong> personas hablando de esto</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img src="imagenes/four-beats-band.jpeg" alt="Integrantes de Four Beats - The Tribute en retrato blanco y negro" class="about-img" loading="lazy">
+        <div class="about-badge"><strong>4</strong><span>Músicos en escena</span></div>
+      </div>
+      <div class="about-content">
+        <p class="section-tag no-lines reveal">La Banda</p>
+        <h2 class="about-title reveal d1">Un tributo con estética retro y ejecución <em>premium</em></h2>
+        <p class="about-text reveal d2">Four Beats - The Tribute es una banda tributo a The Beatles con actividad en León. Su propuesta une la nostalgia de la beatlemanía con una puesta en escena actual: guitarras, batería, visuales y un sonido pensado para conectar desde la primera canción.</p>
+        <p class="about-text reveal d2">La página oficial de Facebook confirma su identidad como “Four Beats - Beatles Tribute Band” y su descripción pública: “Banda Tributo a The Beatles!”. No se agregaron teléfono, dirección exacta ni horarios porque no aparecen visibles de forma pública.</p>
+        <div class="about-stats reveal d3">
+          <div class="about-stat"><strong>León</strong><span>Zona confirmada</span></div>
+          <div class="about-stat"><strong>156</strong><span>Me gusta</span></div>
+          <div class="about-stat"><strong>29</strong><span>Hablando de esto</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" aria-labelledby="rooms-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Servicios / Shows</p>
+      <h2 class="section-title reveal d1" id="rooms-title">Formatos para llevar The Beatles a tu <em>escenario</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">Tres formas claras de contratar la experiencia, adaptadas al tipo de venue y al ambiente que quieres lograr.</p>
+    </div>
+    <div class="rooms-grid">
+      <article class="room-card reveal">
+        <div class="room-card-inner">
+          <img src="imagenes/four-beats-festival-verano-leon.jpeg" alt="Four Beats anunciado para Festival de Verano Vive León 2026" class="room-card-img" loading="lazy">
+          <div class="room-overlay"></div>
+          <div class="room-pills"><span class="room-pill">Escenario grande</span><span class="room-pill">Producción</span></div>
+          <div class="room-content"><p class="room-tag">Formato 01</p><h3 class="room-name">Festivales<br>y escenarios</h3><p class="room-desc">Show para eventos públicos, festivales y escenarios con alta energía, visuales y repertorio tributo pensado para audiencias amplias.</p></div>
+        </div>
+      </article>
+      <article class="room-card reveal d1">
+        <div class="room-card-inner">
+          <img src="imagenes/four-beats-top-music.jpeg" alt="Público disfrutando presentación de Four Beats en Top Music León" class="room-card-img" loading="lazy">
+          <div class="room-overlay"></div>
+          <div class="room-pills"><span class="room-pill">Venue</span><span class="room-pill">Noche en vivo</span></div>
+          <div class="room-content"><p class="room-tag">Formato 02</p><h3 class="room-name">Bares<br>y venues</h3><p class="room-desc">Una noche tributo cercana, intensa y lista para activar al público con clásicos reconocibles y atmósfera Beatle.</p></div>
+        </div>
+      </article>
+      <article class="room-card reveal d2">
+        <div class="room-card-inner">
+          <img src="imagenes/four-beats-instruments.jpeg" alt="Instrumentos y arte de Four Beats - The Tribute con bandera del Reino Unido" class="room-card-img" loading="lazy">
+          <div class="room-overlay"></div>
+          <div class="room-pills"><span class="room-pill">Privado</span><span class="room-pill">Corporativo</span></div>
+          <div class="room-content"><p class="room-tag">Formato 03</p><h3 class="room-name">Eventos<br>especiales</h3><p class="room-desc">Tributo para celebraciones privadas, eventos empresariales y experiencias temáticas con una marca musical universal.</p></div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:48px;"><a href="#contact" class="btn-ghost reveal">Consultar Disponibilidad</a></div>
+  </div>
+</section>
+
+<section id="amenities" aria-labelledby="amenities-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Por qué elegirnos</p>
+      <h2 class="section-title reveal d1" id="amenities-title">Una experiencia tributo con criterio de <em>marca</em></h2>
+      <p class="section-lead reveal d2">Cuatro razones para convertir una noche de música en un momento memorable y fácil de comunicar.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card reveal" data-num="01"><h3 class="amenity-name">Identidad reconocible</h3><p class="amenity-desc">La estética Four Beats conecta de inmediato con el universo visual de The Beatles sin sentirse vieja o improvisada.</p></div>
+      <div class="amenity-card reveal d1" data-num="02"><h3 class="amenity-name">Repertorio universal</h3><p class="amenity-desc">Canciones que atraviesan generaciones y funcionan para públicos jóvenes, adultos y audiencias corporativas.</p></div>
+      <div class="amenity-card reveal d2" data-num="03"><h3 class="amenity-name">Presencia escénica</h3><p class="amenity-desc">La banda se ve y se siente como un show: instrumentos, visuales, luces y una narrativa clara desde el primer tema.</p></div>
+      <div class="amenity-card reveal d3" data-num="04"><h3 class="amenity-name">Enfoque profesional</h3><p class="amenity-desc">Una propuesta clara para venues, festivales y eventos especiales que necesitan música en vivo confiable.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" aria-label="Números destacados">
+  <div class="container">
+    <div class="exp-inner">
+      <div class="exp-left reveal"><p class="section-tag">Presencia digital</p><h2 class="exp-tagline">Datos públicos confirmados de la <em>página oficial</em></h2></div>
+      <div class="exp-stats reveal d1">
+        <div class="exp-stat"><strong class="count" data-target="156">0</strong><span>Me gusta</span></div>
+        <div class="exp-stat"><strong class="count" data-target="29">0</strong><span>Personas hablando</span></div>
+        <div class="exp-stat"><strong class="count" data-target="4">0</strong><span>Integrantes visibles</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Galería real</p>
+      <h2 class="section-title reveal d1" id="gallery-title">Momentos de <em>escenario</em></h2>
+      <p class="section-lead reveal d2">Fotografías proporcionadas en la carpeta del proyecto y usadas como material real de la landing.</p>
+    </div>
+    <div class="gallery-grid reveal d1">
+      <div class="gallery-item gi-1"><img src="imagenes/four-beats-hero-live.jpeg" alt="Four Beats tocando en vivo con público y luces de escenario" loading="lazy"><div class="gi-label">Show en vivo con público</div></div>
+      <div class="gallery-item gi-2"><img src="imagenes/four-beats-band.jpeg" alt="Retrato de los cuatro integrantes de Four Beats" loading="lazy"><div class="gi-label">Integrantes de la banda</div></div>
+      <div class="gallery-item gi-3"><img src="imagenes/four-beats-instruments.jpeg" alt="Arte visual con instrumentos de Four Beats" loading="lazy"><div class="gi-label">Identidad e instrumentos</div></div>
+      <div class="gallery-item gi-4"><img src="imagenes/four-beats-top-music.jpeg" alt="Público en presentación de Four Beats en Top Music León" loading="lazy"><div class="gi-label">Top Music León</div></div>
+      <div class="gallery-item gi-5"><img src="imagenes/four-beats-festival-verano-leon.jpeg" alt="Four Beats anunciado para Festival de Verano Vive León 2026" loading="lazy"><div class="gi-label">Festival de Verano Vive León 2026</div></div>
+      <div class="gallery-item gi-6"><img src="imagenes/four-beats-hero-live.jpeg" alt="Escenario Four Beats con luces y logo en pantalla" loading="lazy"><div class="gi-label">Producción escénica</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="location" aria-labelledby="process-title">
+  <div class="container">
+    <div class="location-grid">
+      <div class="map-box reveal">
+        <iframe title="Mapa de León, Guanajuato" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Le%C3%B3n%2C%20Guanajuato%2C%20M%C3%A9xico&output=embed"></iframe>
+      </div>
+      <div class="location-info">
+        <p class="section-tag no-lines reveal">Cómo funciona</p>
+        <h2 class="location-title reveal d1" id="process-title">Contratar el show debe sentirse <em>simple</em></h2>
+        <p class="location-text reveal d2">El proceso está diseñado para que cualquier venue, festival o cliente privado entienda rápido qué necesita confirmar.</p>
+        <div class="location-details reveal d3">
+          <div class="loc-detail"><div><span class="loc-label">Paso 01</span><span class="loc-val">Envía fecha, ciudad, tipo de evento y duración estimada del show.</span></div></div>
+          <div class="loc-detail"><div><span class="loc-label">Paso 02</span><span class="loc-val">Four Beats confirma disponibilidad y requerimientos técnicos para el escenario.</span></div></div>
+          <div class="loc-detail"><div><span class="loc-label">Paso 03</span><span class="loc-val">Se agenda la presentación y se prepara la experiencia tributo para tu público.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios" aria-labelledby="testimonios-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Confianza</p>
+      <h2 class="section-title reveal d1" id="testimonios-title">Señales públicas que respaldan el <em>show</em></h2>
+      <p class="section-lead reveal d2">No se encontraron reseñas textuales públicas verificables; esta sección muestra únicamente datos y apariciones visibles en fuentes públicas.</p>
+    </div>
+    <div class="reviews-grid reveal d1">
+      <div class="review-card"><div class="review-stars">Página oficial</div><p class="review-text">La presencia pública aparece como Four Beats - Beatles Tribute Band, con actividad en León y descripción de banda tributo a The Beatles.</p><div class="review-author"><div class="review-avatar">F</div><div class="review-name"><strong>Facebook</strong><span>Fuente oficial</span></div></div></div>
+      <div class="review-card"><div class="review-stars">Venue confirmado</div><p class="review-text">Publicaciones públicas vinculan presentaciones y videos de Four Beats con Top Music León.</p><div class="review-author"><div class="review-avatar">T</div><div class="review-name"><strong>Top Music León</strong><span>Escenario en vivo</span></div></div></div>
+      <div class="review-card"><div class="review-stars">Festival</div><p class="review-text">Resultados públicos muestran presencia de Four Beats como tributo a The Beatles en Festival de Verano Vive León 2026.</p><div class="review-author"><div class="review-avatar">L</div><div class="review-name"><strong>León</strong><span>Actividad local</span></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:52px;" class="reveal"><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="btn-ghost-dark">Ver página oficial</a></div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Contacto</p>
+      <h2 class="section-title reveal d1" id="contact-title">Solicita disponibilidad para tu <em>fecha</em></h2>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">El formulario abre Messenger/Facebook con un mensaje listo. No se añadió WhatsApp porque no hay número confirmado públicamente.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p class="section-tag no-lines">Formulario breve</p>
+        <h3 class="contact-title">Tu evento puede sonar a <em>Beatles</em></h3>
+        <p class="contact-sub">Completa los datos esenciales y se abrirá el contacto oficial para enviar tu solicitud.</p>
+        <form id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name"></div>
+            <div class="form-group"><label for="telefono">Teléfono / WhatsApp</label><input type="tel" id="telefono" name="telefono" placeholder="+52 ..." required autocomplete="tel"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="fecha">Fecha del evento</label><input type="date" id="fecha" name="fecha" required></div>
+            <div class="form-group"><label for="tipo">Tipo de evento</label><select id="tipo" name="tipo"><option value="">Seleccionar...</option><option>Festival</option><option>Bar / venue</option><option>Evento privado</option><option>Evento corporativo</option><option>Otro</option></select></div>
+          </div>
+          <div class="form-group"><label for="ciudad">Ciudad / venue</label><input id="ciudad" name="ciudad" placeholder="León, venue o ciudad del evento"></div>
+          <div class="form-group"><label for="mensaje">Detalles</label><textarea id="mensaje" name="mensaje" placeholder="Duración aproximada, horario, escenario, requerimientos o presupuesto..."></textarea></div>
+          <button type="submit" class="form-submit">Abrir mensaje de contacto</button>
+        </form>
+      </div>
+      <div class="contact-right reveal d1">
+        <p class="section-tag no-lines">Datos confirmados</p>
+        <h3 class="contact-title">Canales y zona de <em>actividad</em></h3>
+        <div class="contact-map" aria-label="Mapa de zona de actividad en León, Guanajuato">
+          <iframe title="Mapa de León, Guanajuato para Four Beats - The Tribute" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Le%C3%B3n%2C%20Guanajuato%2C%20M%C3%A9xico&output=embed"></iframe>
+        </div>
+        <div class="channels">
+          <a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="channel" aria-label="Facebook oficial"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><div class="ch-info"><strong>Facebook oficial</strong><span>Four Beats - Beatles Tribute Band</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="channel" aria-label="Messenger"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div class="ch-info"><strong>Messenger</strong><span>Contacto directo desde la página oficial</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <div class="channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="ch-info"><strong>Zona de actividad</strong><span>León, Guanajuato</span></div></div>
+          <div class="channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="ch-info"><strong>Horarios</strong><span>No visibles públicamente en Facebook</span></div></div>
+        </div>
+        <div class="contact-quote"><p>"Banda Tributo a The Beatles!"</p><cite>Descripción pública en Facebook</cite></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap"><div class="footer-logo-pill"><img src="imagenes/logo-transparent.png" alt="Four Beats - The Tribute Logo"></div><div class="footer-logo-text"><strong>Four Beats</strong><small>The Tribute</small></div></div>
+      <p>Banda tributo a The Beatles con actividad en León. Sitio construido únicamente con información confirmada y fotografías proporcionadas en el proyecto.</p>
+    </div>
+    <div class="footer-col"><h4>Navegación</h4><ul><li><a href="#about">La Banda</a></li><li><a href="#rooms">Shows</a></li><li><a href="#amenities">Diferenciales</a></li><li><a href="#gallery">Galería</a></li><li><a href="#testimonios">Confianza</a></li></ul></div>
+    <div class="footer-col"><h4>Contratación</h4><ul><li><a href="#rooms">Festivales</a></li><li><a href="#rooms">Bares y venues</a></li><li><a href="#rooms">Eventos privados</a></li><li><a href="#location">Proceso</a></li></ul></div>
+    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener">Facebook oficial</a></li><li><a href="https://m.me/61572524777031" target="_blank" rel="noopener">Messenger</a></li><li><a href="#contact">Solicitar disponibilidad</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Four Beats - The Tribute. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="social-link" aria-label="Messenger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://m.me/61572524777031" id="wa-float" target="_blank" rel="noopener" aria-label="Contactar por Messenger">
+  <div class="wa-ring-2" aria-hidden="true"></div><div class="wa-ring" aria-hidden="true"></div>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.914 1.454 5.513 3.727 7.21V22l3.405-1.87c.908.252 1.87.39 2.868.39 5.523 0 10-4.145 10-9.26S17.523 2 12 2zm.994 12.468l-2.547-2.72-4.967 2.72 5.464-5.8 2.609 2.72 4.905-2.72-5.464 5.8z"/></svg>
+</a>
+
+<script>
+(function(){'use strict';
+  window.addEventListener('load',function(){setTimeout(function(){var el=document.getElementById('loader');if(el)el.classList.add('hidden');},2100);});
+  var nav=document.getElementById('nav');window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  var ham=document.getElementById('ham'),mob=document.getElementById('mobile-menu'),mOpen=false;
+  function closeMob(){mOpen=false;ham.classList.remove('open');mob.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+  window.closeMob=closeMob;ham.addEventListener('click',function(){mOpen=!mOpen;ham.classList.toggle('open',mOpen);mob.classList.toggle('open',mOpen);ham.setAttribute('aria-expanded',String(mOpen));document.body.style.overflow=mOpen?'hidden':'';});
+
+  (function(){var canvas=document.getElementById('particle-canvas');if(!canvas)return;var ctx=canvas.getContext('2d'),W,H,pts=[],raf;var COLS=['rgba(200,16,46,','rgba(1,33,105,','rgba(255,255,255,'];
+    function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}resize();window.addEventListener('resize',resize,{passive:true});
+    function Pt(){this.init();}Pt.prototype.init=function(){this.x=Math.random()*W;this.y=Math.random()*H;this.r=Math.random()*2.8+.6;this.vx=(Math.random()-.5)*.38;this.vy=(Math.random()-.5)*.38;this.a0=Math.random()*.5+.14;this.ps=Math.random()*.028+.014;this.po=Math.random()*Math.PI*2;this.ci=Math.floor(Math.random()*COLS.length);this.a=this.a0;};
+    Pt.prototype.step=function(t){this.x+=this.vx;this.y+=this.vy;this.a=this.a0+Math.sin(t*this.ps+this.po)*.35;if(this.x<-4)this.x=W+4;if(this.x>W+4)this.x=-4;if(this.y<-4)this.y=H+4;if(this.y>H+4)this.y=-4;};Pt.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,6.2832);ctx.fillStyle=COLS[this.ci]+this.a+')';ctx.fill();};
+    for(var i=0,N=Math.min(125,Math.floor(window.innerWidth/10));i<N;i++)pts.push(new Pt());
+    function lines(){var MAX=130;for(var a=0;a<pts.length-1;a++){for(var b=a+1;b<pts.length;b++){var dx=pts[a].x-pts[b].x,dy=pts[a].y-pts[b].y,d=Math.sqrt(dx*dx+dy*dy);if(d<MAX){ctx.beginPath();ctx.moveTo(pts[a].x,pts[a].y);ctx.lineTo(pts[b].x,pts[b].y);ctx.strokeStyle='rgba(255,255,255,'+((1-d/MAX)*.11)+')';ctx.lineWidth=.5;ctx.stroke();}}}}
+    var tick=0;function loop(){ctx.clearRect(0,0,W,H);tick++;for(var i=0;i<pts.length;i++){pts[i].step(tick);pts[i].draw();}lines();raf=requestAnimationFrame(loop);}loop();
+    new IntersectionObserver(function(entries){if(entries[0].isIntersecting){if(!raf)loop();}else{cancelAnimationFrame(raf);raf=null;}},{threshold:.01}).observe(document.getElementById('hero'));
+  }());
+
+  (function(){var words=['energía','nostalgia','producción','presencia','rock clásico'];var wi=0,ci=0,deleting=false,el=document.getElementById('typer');if(!el)return;function tick(){var w=words[wi];if(!deleting){el.textContent=w.slice(0,++ci);if(ci===w.length){deleting=true;setTimeout(tick,2300);return;}setTimeout(tick,110);}else{el.textContent=w.slice(0,--ci);if(ci===0){deleting=false;wi=(wi+1)%words.length;}setTimeout(tick,68);}}setTimeout(tick,2600);}());
+
+  var revealEls=document.querySelectorAll('.reveal');var revealIO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revealIO.unobserve(e.target);}});},{threshold:.09,rootMargin:'0px 0px -32px 0px'});revealEls.forEach(function(el){revealIO.observe(el);});
+
+  var counted=false;new IntersectionObserver(function(entries){if(!entries[0].isIntersecting||counted)return;counted=true;document.querySelectorAll('.count').forEach(function(el){var target=parseInt(el.dataset.target,10),start=0,dur=1200,ts=null;function step(t){if(!ts)ts=t;var p=Math.min((t-ts)/dur,1),val=Math.floor(start+(target-start)*p);el.textContent=val;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});},{threshold:.35}).observe(document.getElementById('experience'));
+
+  var form=document.getElementById('booking-form');if(form){form.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nombre').value.trim(),t=document.getElementById('telefono').value.trim(),f=document.getElementById('fecha').value,tipo=document.getElementById('tipo').value,ciudad=document.getElementById('ciudad').value.trim(),m=document.getElementById('mensaje').value.trim();if(!n||!t||!f){alert('Por favor completa: nombre, teléfono y fecha del evento.');return;}var msg=['Hola Four Beats - The Tribute. Quiero solicitar disponibilidad para un evento.','','Nombre: '+n,'Teléfono / WhatsApp: '+t,'Fecha: '+f,'Tipo de evento: '+(tipo||'Por definir'),'Ciudad / venue: '+(ciudad||'Por definir'),m?'Detalles: '+m:null].filter(Boolean).join('\\n');window.open('https://m.me/61572524777031?ref='+encodeURIComponent(msg),'_blank','noopener');});document.getElementById('fecha').min=new Date().toISOString().split('T')[0];}
+}());
+</script>
+</body>
+</html>
