@@ -153,6 +153,26 @@ ul{list-style:none}
 .gi-label{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(to top,rgba(0,0,0,.9),transparent);font-family:var(--font-serif);font-size:16px;color:var(--white);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s var(--ease-out);z-index:2}.gallery-item:hover .gi-label{opacity:1;transform:translateY(0)}
 .gi-1{grid-column:1/7}.gi-2{grid-column:7/10}.gi-3{grid-column:10/13}.gi-4{grid-column:1/5}.gi-5{grid-column:5/9}.gi-6{grid-column:9/13}
 
+#live-show{padding:120px 0;background:var(--dark-2);position:relative;overflow:hidden}
+#live-show .section-lead{color:var(--text-muted)}
+.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:68px}
+.live-card{position:relative;overflow:hidden;background:#000;aspect-ratio:3/4;min-width:0}
+.live-card video,.live-card img{width:100%;height:100%;max-width:100%;object-fit:cover;display:block}
+.live-card-label{position:absolute;bottom:0;left:0;right:0;padding:18px 20px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent);font-family:var(--font-serif);font-size:15px;color:var(--white);z-index:2;pointer-events:none}
+.live-card img{transition:transform .8s var(--ease-out),filter .5s}a.live-card:hover img{transform:scale(1.06);filter:brightness(.7)}
+.live-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:56px;height:56px;border-radius:50%;background:rgba(200,16,46,.88);display:flex;align-items:center;justify-content:center;transition:transform .3s;box-shadow:0 14px 34px rgba(0,0,0,.4)}
+a.live-card:hover .live-play{transform:translate(-50%,-50%) scale(1.1)}
+.live-play svg{width:18px;height:18px;fill:white;margin-left:3px}
+
+.venues-strip{margin-top:56px;padding-top:48px;border-top:1px solid var(--border-d)}
+.venues-strip-head{text-align:center;margin-bottom:30px}
+.venues-strip-head p{font-family:var(--font-type);font-size:10px;letter-spacing:3.2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.venues-strip-head h3{font-family:var(--font-serif);font-size:clamp(22px,2.6vw,30px);font-weight:700;color:var(--white)}
+.venues-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.venue-card{position:relative;overflow:hidden;background:#000;aspect-ratio:3/4}
+.venue-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease-out),filter .5s}.venue-card:hover img{transform:scale(1.07);filter:brightness(.78)}
+.venue-card-label{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent);font-size:11px;letter-spacing:.5px;color:var(--white);font-weight:600}
+
 #location{padding:120px 0;background:var(--paper-2);color:var(--text-dark)}
 .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .map-box{width:100%;aspect-ratio:4/3;background:#dedbd2;border:1px solid var(--border-l);overflow:hidden;position:relative}.map-box iframe{width:100%;height:100%;border:0;filter:grayscale(100%) contrast(.95)}
@@ -179,10 +199,10 @@ ul{list-style:none}
 .contact-quote{margin-top:28px;padding:24px;border:1px solid var(--border-d);background:rgba(1,33,105,.18)}.contact-quote p{font-family:var(--font-serif);font-size:17px;font-style:italic;color:rgba(255,255,255,.86);line-height:1.75;text-align:center}.contact-quote cite{display:block;margin-top:10px;font-family:var(--font-type);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ff3856;font-style:normal;text-align:center}
 
 footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--border-d)}.footer-top{display:flex;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:52px;border-bottom:1px solid var(--border-d);margin-bottom:32px}.footer-brand{max-width:300px}.footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px}.footer-logo-pill img{height:76px;width:auto}.footer-logo-text strong{display:block;font-family:var(--font-serif);font-size:16px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}.footer-logo-text small{font-family:var(--font-type);font-size:8px;letter-spacing:3px;color:var(--red);text-transform:uppercase}.footer-brand p{font-size:13px;color:var(--text-dim);line-height:1.8}.footer-col h4{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#ff3856;margin-bottom:16px;font-weight:700}.footer-col ul{display:flex;flex-direction:column;gap:9px}.footer-col ul a{font-size:13px;color:var(--text-dim);transition:color .3s}.footer-col ul a:hover{color:var(--white)}.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}.footer-bottom p{font-size:11px;color:var(--text-dim)}.social-links{display:flex;gap:10px}.social-link{width:32px;height:32px;border:1px solid var(--border-d);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:border-color .3s,color .3s}.social-link:hover{border-color:var(--red);color:var(--red)}.social-link svg{width:13px;height:13px}
-#wa-float{position:fixed;right:22px;bottom:26px;z-index:900;width:58px;height:58px;background:#1877F2;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(24,119,242,.42);transition:transform .3s var(--ease-out),box-shadow .3s}#wa-float:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 8px 32px rgba(24,119,242,.55)}#wa-float svg{width:26px;height:26px;fill:white;position:relative;z-index:1}.wa-ring,.wa-ring-2{position:absolute;border-radius:50%;background:rgba(24,119,242,.22);animation:waRing 2.5s ease-in-out infinite}.wa-ring{inset:-5px}.wa-ring-2{inset:-12px;animation-delay:.65s;background:rgba(24,119,242,.11)}@keyframes waRing{50%{transform:scale(1.18);opacity:0}}
+#wa-float{position:fixed;right:22px;bottom:26px;z-index:900;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.42);transition:transform .3s var(--ease-out),box-shadow .3s}#wa-float:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,.55)}#wa-float svg{width:26px;height:26px;fill:white;position:relative;z-index:1}.wa-ring,.wa-ring-2{position:absolute;border-radius:50%;background:rgba(37,211,102,.22);animation:waRing 2.5s ease-in-out infinite}.wa-ring{inset:-5px}.wa-ring-2{inset:-12px;animation-delay:.65s;background:rgba(37,211,102,.11)}@keyframes waRing{50%{transform:scale(1.18);opacity:0}}
 
-@media (max-width:1024px){.rooms-grid{grid-template-columns:1fr 1fr}.amenities-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:52px}.gallery-grid{grid-template-columns:repeat(6,1fr);grid-template-rows:280px 220px}.gi-1{grid-column:1/7}.gi-2{grid-column:1/4}.gi-3{grid-column:4/7}.gi-4{grid-column:1/3}.gi-5{grid-column:3/5}.gi-6{grid-column:5/7}}
-@media (max-width:768px){#nav{padding:12px 5%}.nav-links,.nav-cta{display:none}.nav-ham{display:flex}.nav-logo-pill img{height:64px}.nav-logo-text strong{font-size:14px}.nav-logo-text small{font-size:8px;letter-spacing:2px}#hero,#experience{background-attachment:scroll}#hero{background-position:center top}.hero-content{padding-top:128px}.hero-trust{position:relative;left:auto;bottom:auto;transform:none;margin-top:34px}.about-grid,.location-grid{grid-template-columns:1fr;gap:48px;padding:92px 0}.about-badge{right:14px;bottom:14px}.rooms-grid{grid-template-columns:1fr}.amenities-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;text-align:center}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi-1,.gi-2,.gi-3,.gi-4,.gi-5,.gi-6{grid-column:auto}.gallery-grid .gallery-item img{aspect-ratio:1;height:220px}}
+@media (max-width:1024px){.rooms-grid{grid-template-columns:1fr 1fr}.amenities-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr;gap:52px}.gallery-grid{grid-template-columns:repeat(6,1fr);grid-template-rows:280px 220px}.gi-1{grid-column:1/7}.gi-2{grid-column:1/4}.gi-3{grid-column:4/7}.gi-4{grid-column:1/3}.gi-5{grid-column:3/5}.gi-6{grid-column:5/7}.venues-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:768px){#nav{padding:12px 5%}.nav-links,.nav-cta{display:none}.nav-ham{display:flex}.nav-logo-pill img{height:64px}.nav-logo-text strong{font-size:14px}.nav-logo-text small{font-size:8px;letter-spacing:2px}#hero,#experience{background-attachment:scroll}#hero{background-position:center top}.hero-content{padding-top:128px}.hero-trust{position:relative;left:auto;bottom:auto;transform:none;margin-top:34px}.about-grid,.location-grid{grid-template-columns:1fr;gap:48px;padding:92px 0}.about-badge{right:14px;bottom:14px}.rooms-grid{grid-template-columns:1fr}.amenities-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;text-align:center}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi-1,.gi-2,.gi-3,.gi-4,.gi-5,.gi-6{grid-column:auto}.gallery-grid .gallery-item img{aspect-ratio:1;height:220px}.live-grid{grid-template-columns:1fr}.venues-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:480px){.amenities-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;align-items:stretch}.btn-primary,.btn-ghost{text-align:center;padding:15px}.hero-title{font-size:clamp(46px,15vw,62px)}.hero-eyebrow{letter-spacing:2.8px}.hero-eyebrow::before,.hero-eyebrow::after{width:20px}.about-stats,.exp-stats{gap:24px}.rooms-grid,.gallery-grid{gap:6px}.loader-logo-wrap img{width:220px}}
 </style>
 </head>
@@ -215,7 +235,7 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
     <li><a href="#gallery">Galería</a></li>
     <li><a href="#testimonios">Confianza</a></li>
   </ul>
-  <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="nav-cta">Contactar</a>
+  <a href="https://wa.me/525545251053" target="_blank" rel="noopener" class="nav-cta">Contactar</a>
   <button class="nav-ham" id="ham" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
@@ -234,12 +254,40 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
     <p class="hero-desc">Four Beats - The Tribute lleva la música de The Beatles al escenario con una experiencia cuidada, visualmente potente y lista para festivales, venues, eventos privados y noches corporativas.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Solicitar Contratación</a>
-      <a href="#gallery" class="btn-ghost">Ver Show en Vivo</a>
+      <a href="#live-show" class="btn-ghost">Ver Show en Vivo</a>
     </div>
     <div class="hero-trust" aria-label="Datos destacados">
       <span><strong>León</strong> zona de actividad</span>
       <span><strong>156</strong> me gusta en Facebook</span>
       <span><strong>29</strong> personas hablando de esto</span>
+    </div>
+  </div>
+</section>
+
+<section id="live-show" aria-labelledby="live-show-title">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-tag reveal">Show en vivo</p>
+      <h2 class="section-title reveal d1" id="live-show-title">Así suena y se ve el <em>show en vivo</em></h2>
+      <p class="section-lead reveal d2">Clip real de escenario y más contenido en video directo desde nuestro Instagram.</p>
+    </div>
+    <div class="live-grid reveal d1">
+      <div class="live-card">
+        <video controls preload="metadata" poster="imagenes/four-beats-hero-live.jpeg" playsinline>
+          <source src="videos/four-beats-show-en-vivo-1.mp4" type="video/mp4">
+        </video>
+        <div class="live-card-label">Tributo en vivo · clip oficial</div>
+      </div>
+      <a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener" class="live-card" aria-label="Ver más videos en Instagram">
+        <img src="imagenes/four-beats-bar-2.jpeg" alt="Four Beats tocando en vivo en bar" loading="lazy">
+        <div class="live-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="live-card-label">Más videos en Instagram</div>
+      </a>
+      <a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener" class="live-card" aria-label="Ver más videos en Instagram">
+        <img src="imagenes/four-beats-bar-3.jpeg" alt="Four Beats tocando en vivo en bar" loading="lazy">
+        <div class="live-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="live-card-label">Más videos en Instagram</div>
+      </a>
     </div>
   </div>
 </section>
@@ -284,7 +332,7 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
       </article>
       <article class="room-card reveal d1">
         <div class="room-card-inner">
-          <img src="imagenes/four-beats-top-music.jpeg" alt="Público disfrutando presentación de Four Beats en Top Music León" class="room-card-img" loading="lazy">
+          <img src="imagenes/four-beats-bares-venues.jpeg" alt="Four Beats tocando en vivo en un bar con producción de luces" class="room-card-img" loading="lazy">
           <div class="room-overlay"></div>
           <div class="room-pills"><span class="room-pill">Venue</span><span class="room-pill">Noche en vivo</span></div>
           <div class="room-content"><p class="room-tag">Formato 02</p><h3 class="room-name">Bares<br>y venues</h3><p class="room-desc">Una noche tributo cercana, intensa y lista para activar al público con clásicos reconocibles y atmósfera Beatle.</p></div>
@@ -292,12 +340,22 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
       </article>
       <article class="room-card reveal d2">
         <div class="room-card-inner">
-          <img src="imagenes/four-beats-instruments.jpeg" alt="Instrumentos y arte de Four Beats - The Tribute con bandera del Reino Unido" class="room-card-img" loading="lazy">
+          <img src="imagenes/four-beats-eventos-especiales.jpeg" alt="Integrantes de Four Beats posando con sus instrumentos para un evento especial" class="room-card-img" loading="lazy">
           <div class="room-overlay"></div>
           <div class="room-pills"><span class="room-pill">Privado</span><span class="room-pill">Corporativo</span></div>
           <div class="room-content"><p class="room-tag">Formato 03</p><h3 class="room-name">Eventos<br>especiales</h3><p class="room-desc">Tributo para celebraciones privadas, eventos empresariales y experiencias temáticas con una marca musical universal.</p></div>
         </div>
       </article>
+    </div>
+    <div class="venues-strip reveal d2">
+      <div class="venues-strip-head"><p>Otros bares y recintos</p><h3>Donde ya hemos <em style="color:var(--red);font-style:italic;">participado</em></h3></div>
+      <div class="venues-grid">
+        <div class="venue-card"><img src="imagenes/four-beats-venue-contrapunto.jpeg" alt="Four Beats en Contrapunto Café Arte" loading="lazy"><div class="venue-card-label">Contrapunto Café Arte</div></div>
+        <div class="venue-card"><img src="imagenes/four-beats-venue-chickelads.jpeg" alt="Four Beats en Chickelad's Alitas & Beer" loading="lazy"><div class="venue-card-label">Chickelad's Alitas & Beer</div></div>
+        <div class="venue-card"><img src="imagenes/four-beats-venue-topmusic.jpeg" alt="Four Beats en Top Music León" loading="lazy"><div class="venue-card-label">Top Music León</div></div>
+        <div class="venue-card"><img src="imagenes/four-beats-venue-feria-carpa.jpeg" alt="Four Beats en la Carpa de Colores, Feria León" loading="lazy"><div class="venue-card-label">Feria León · Carpa de Colores</div></div>
+        <div class="venue-card"><img src="imagenes/four-beats-venue-viveleon.jpeg" alt="Four Beats en el Festival de Verano Vive León" loading="lazy"><div class="venue-card-label">Festival Vive León</div></div>
+      </div>
     </div>
     <div style="text-align:center;margin-top:48px;"><a href="#contact" class="btn-ghost reveal">Consultar Disponibilidad</a></div>
   </div>
@@ -342,10 +400,10 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
     <div class="gallery-grid reveal d1">
       <div class="gallery-item gi-1"><img src="imagenes/four-beats-hero-live.jpeg" alt="Four Beats tocando en vivo con público y luces de escenario" loading="lazy"><div class="gi-label">Show en vivo con público</div></div>
       <div class="gallery-item gi-2"><img src="imagenes/four-beats-band.jpeg" alt="Retrato de los cuatro integrantes de Four Beats" loading="lazy"><div class="gi-label">Integrantes de la banda</div></div>
-      <div class="gallery-item gi-3"><img src="imagenes/four-beats-instruments.jpeg" alt="Arte visual con instrumentos de Four Beats" loading="lazy"><div class="gi-label">Identidad e instrumentos</div></div>
+      <div class="gallery-item gi-3"><img src="imagenes/four-beats-instruments-live.jpeg" alt="Instrumentos de Four Beats en el escenario durante un show en vivo" loading="lazy"><div class="gi-label">Instrumentos en escena</div></div>
       <div class="gallery-item gi-4"><img src="imagenes/four-beats-top-music.jpeg" alt="Público en presentación de Four Beats en Top Music León" loading="lazy"><div class="gi-label">Top Music León</div></div>
       <div class="gallery-item gi-5"><img src="imagenes/four-beats-festival-verano-leon.jpeg" alt="Four Beats anunciado para Festival de Verano Vive León 2026" loading="lazy"><div class="gi-label">Festival de Verano Vive León 2026</div></div>
-      <div class="gallery-item gi-6"><img src="imagenes/four-beats-hero-live.jpeg" alt="Escenario Four Beats con luces y logo en pantalla" loading="lazy"><div class="gi-label">Producción escénica</div></div>
+      <div class="gallery-item gi-6"><img src="imagenes/four-beats-feria-leon.jpeg" alt="Four Beats en la Feria de León con pantallas y producción de escenario" loading="lazy"><div class="gi-label">Feria de León · producción en vivo</div></div>
     </div>
   </div>
 </section>
@@ -382,7 +440,7 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
       <div class="review-card"><div class="review-stars">Venue confirmado</div><p class="review-text">Publicaciones públicas vinculan presentaciones y videos de Four Beats con Top Music León.</p><div class="review-author"><div class="review-avatar">T</div><div class="review-name"><strong>Top Music León</strong><span>Escenario en vivo</span></div></div></div>
       <div class="review-card"><div class="review-stars">Festival</div><p class="review-text">Resultados públicos muestran presencia de Four Beats como tributo a The Beatles en Festival de Verano Vive León 2026.</p><div class="review-author"><div class="review-avatar">L</div><div class="review-name"><strong>León</strong><span>Actividad local</span></div></div></div>
     </div>
-    <div style="text-align:center;margin-top:52px;" class="reveal"><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="btn-ghost-dark">Ver página oficial</a></div>
+    <div style="text-align:center;margin-top:52px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal"><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="btn-ghost-dark">Ver página oficial</a><a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener" class="btn-ghost-dark">Ver Instagram</a></div>
   </div>
 </section>
 
@@ -391,7 +449,7 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
     <div class="section-header">
       <p class="section-tag reveal">Contacto</p>
       <h2 class="section-title reveal d1" id="contact-title">Solicita disponibilidad para tu <em>fecha</em></h2>
-      <p class="section-lead reveal d2" style="color:var(--text-muted);">El formulario abre Messenger/Facebook con un mensaje listo. No se añadió WhatsApp porque no hay número confirmado públicamente.</p>
+      <p class="section-lead reveal d2" style="color:var(--text-muted);">El formulario abre WhatsApp con un mensaje listo para enviar directo a Four Beats.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-left reveal">
@@ -420,9 +478,10 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
         </div>
         <div class="channels">
           <a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="channel" aria-label="Facebook oficial"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div><div class="ch-info"><strong>Facebook oficial</strong><span>Four Beats - Beatles Tribute Band</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
-          <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="channel" aria-label="Messenger"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div class="ch-info"><strong>Messenger</strong><span>Contacto directo desde la página oficial</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="https://wa.me/525545251053" target="_blank" rel="noopener" class="channel" aria-label="WhatsApp 55 45 25 10 53"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.914 1.454 5.513 3.727 7.21V22l3.405-1.87c.908.252 1.87.39 2.868.39 5.523 0 10-4.145 10-9.26S17.523 2 12 2z"/></svg></div><div class="ch-info"><strong>WhatsApp</strong><span>55 45 25 10 53</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="https://wa.me/524773944789" target="_blank" rel="noopener" class="channel" aria-label="WhatsApp 477 394 47 89"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.914 1.454 5.513 3.727 7.21V22l3.405-1.87c.908.252 1.87.39 2.868.39 5.523 0 10-4.145 10-9.26S17.523 2 12 2z"/></svg></div><div class="ch-info"><strong>WhatsApp</strong><span>477 394 47 89</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener" class="channel" aria-label="Instagram"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div><div class="ch-info"><strong>Instagram</strong><span>@fourbeats_beatlestribute</span></div><svg class="ch-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg></a>
           <div class="channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="ch-info"><strong>Zona de actividad</strong><span>León, Guanajuato</span></div></div>
-          <div class="channel"><div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="ch-info"><strong>Horarios</strong><span>No visibles públicamente en Facebook</span></div></div>
         </div>
         <div class="contact-quote"><p>"Banda Tributo a The Beatles!"</p><cite>Descripción pública en Facebook</cite></div>
       </div>
@@ -438,18 +497,19 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
     </div>
     <div class="footer-col"><h4>Navegación</h4><ul><li><a href="#about">La Banda</a></li><li><a href="#rooms">Shows</a></li><li><a href="#amenities">Diferenciales</a></li><li><a href="#gallery">Galería</a></li><li><a href="#testimonios">Confianza</a></li></ul></div>
     <div class="footer-col"><h4>Contratación</h4><ul><li><a href="#rooms">Festivales</a></li><li><a href="#rooms">Bares y venues</a></li><li><a href="#rooms">Eventos privados</a></li><li><a href="#location">Proceso</a></li></ul></div>
-    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener">Facebook oficial</a></li><li><a href="https://m.me/61572524777031" target="_blank" rel="noopener">Messenger</a></li><li><a href="#contact">Solicitar disponibilidad</a></li></ul></div>
+    <div class="footer-col"><h4>Contacto</h4><ul><li><a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener">Facebook oficial</a></li><li><a href="https://wa.me/525545251053" target="_blank" rel="noopener">WhatsApp 55 45 25 10 53</a></li><li><a href="https://wa.me/524773944789" target="_blank" rel="noopener">WhatsApp 477 394 47 89</a></li><li><a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener">Instagram</a></li><li><a href="#contact">Solicitar disponibilidad</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Four Beats - The Tribute. Todos los derechos reservados.</p>
     <div class="social-links">
       <a href="https://web.facebook.com/profile.php?id=61572524777031" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://m.me/61572524777031" target="_blank" rel="noopener" class="social-link" aria-label="Messenger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+      <a href="https://www.instagram.com/fourbeats_beatlestribute/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://wa.me/525545251053" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.914 1.454 5.513 3.727 7.21V22l3.405-1.87c.908.252 1.87.39 2.868.39 5.523 0 10-4.145 10-9.26S17.523 2 12 2z"/></svg></a>
     </div>
   </div>
 </footer>
 
-<a href="https://m.me/61572524777031" id="wa-float" target="_blank" rel="noopener" aria-label="Contactar por Messenger">
+<a href="https://wa.me/525545251053" id="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <div class="wa-ring-2" aria-hidden="true"></div><div class="wa-ring" aria-hidden="true"></div>
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.145 2 11.26c0 2.914 1.454 5.513 3.727 7.21V22l3.405-1.87c.908.252 1.87.39 2.868.39 5.523 0 10-4.145 10-9.26S17.523 2 12 2zm.994 12.468l-2.547-2.72-4.967 2.72 5.464-5.8 2.609 2.72 4.905-2.72-5.464 5.8z"/></svg>
 </a>
@@ -478,7 +538,7 @@ footer{background:var(--black);padding:68px 5% 36px;border-top:1px solid var(--b
 
   var counted=false;new IntersectionObserver(function(entries){if(!entries[0].isIntersecting||counted)return;counted=true;document.querySelectorAll('.count').forEach(function(el){var target=parseInt(el.dataset.target,10),start=0,dur=1200,ts=null;function step(t){if(!ts)ts=t;var p=Math.min((t-ts)/dur,1),val=Math.floor(start+(target-start)*p);el.textContent=val;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);});},{threshold:.35}).observe(document.getElementById('experience'));
 
-  var form=document.getElementById('booking-form');if(form){form.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nombre').value.trim(),t=document.getElementById('telefono').value.trim(),f=document.getElementById('fecha').value,tipo=document.getElementById('tipo').value,ciudad=document.getElementById('ciudad').value.trim(),m=document.getElementById('mensaje').value.trim();if(!n||!t||!f){alert('Por favor completa: nombre, teléfono y fecha del evento.');return;}var msg=['Hola Four Beats - The Tribute. Quiero solicitar disponibilidad para un evento.','','Nombre: '+n,'Teléfono / WhatsApp: '+t,'Fecha: '+f,'Tipo de evento: '+(tipo||'Por definir'),'Ciudad / venue: '+(ciudad||'Por definir'),m?'Detalles: '+m:null].filter(Boolean).join('\\n');window.open('https://m.me/61572524777031?ref='+encodeURIComponent(msg),'_blank','noopener');});document.getElementById('fecha').min=new Date().toISOString().split('T')[0];}
+  var form=document.getElementById('booking-form');if(form){form.addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nombre').value.trim(),t=document.getElementById('telefono').value.trim(),f=document.getElementById('fecha').value,tipo=document.getElementById('tipo').value,ciudad=document.getElementById('ciudad').value.trim(),m=document.getElementById('mensaje').value.trim();if(!n||!t||!f){alert('Por favor completa: nombre, teléfono y fecha del evento.');return;}var msg=['Hola Four Beats - The Tribute. Quiero solicitar disponibilidad para un evento.','','Nombre: '+n,'Teléfono / WhatsApp: '+t,'Fecha: '+f,'Tipo de evento: '+(tipo||'Por definir'),'Ciudad / venue: '+(ciudad||'Por definir'),m?'Detalles: '+m:null].filter(Boolean).join('\\n');window.open('https://wa.me/525545251053?text='+encodeURIComponent(msg),'_blank','noopener');});document.getElementById('fecha').min=new Date().toISOString().split('T')[0];}
 }());
 </script>
 </body>
